@@ -77,4 +77,4 @@ public class TipCalculator {
         }
         System.out.println("Total items ordered: " + totalAmount);
     }
-} //
+} //ignore
