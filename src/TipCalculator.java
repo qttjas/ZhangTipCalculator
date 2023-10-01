@@ -10,21 +10,24 @@ public class TipCalculator {
         double tipPercentage = scan.nextDouble();
         System.out.print("Enter a cost in dollars and cents, e.g. 3.65 (-1 to end): ");
         double input = scan.nextDouble();
-        System.out.println("Enter the food: ");
+        scan.nextLine();
+        System.out.print("Enter the food: ");
         String foodName = scan.nextLine();
 
         double totalBill = 0;
         ArrayList<String> items = new ArrayList<String>();
         totalBill += input;
+        items.add(foodName);
 
         while (input != -1) {
             System.out.print("Enter a cost in dollars and cents, e.g. 3.65 (-1 to end): ");
             input = scan.nextDouble();
-            System.out.print("Enter the food: ");
-            foodName = scan.nextLine();
+            scan.nextLine();
             if (input !=-1){
                 totalBill += input;
-                items.add(foodName);
+            System.out.print("Enter the food: ");
+            foodName = scan.nextLine();
+            items.add(foodName);
             }
         }
 
@@ -52,6 +55,9 @@ public class TipCalculator {
         System.out.println("Tip per person: $" + tipPerson);
         System.out.println("Total cost per person: $" + totalCost);
         System.out.println("-------------------------------------------");
-        System.out.println("Enter the food: ");
+        System.out.println("Items ordered:");
+        for (String item : items) {
+            System.out.println(item);
+        }
     }
 }
