@@ -64,7 +64,7 @@ public class TipCalculator {
         // https://intellipaat.com/community/35143/how-to-round-up-to-2-decimal-places-in-java
         // https://stackoverflow.com/questions/16583604/formatting-numbers-using-decimalformat
 
-        // prints the results
+        // print the results
         System.out.println("-------------------------------------------");
         System.out.println("Total bill before tip: $" + df2.format(totalBill));
         System.out.println("Total percentage: " + (int)tipPercentage + "%");
