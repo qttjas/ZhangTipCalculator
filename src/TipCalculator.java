@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.text.DecimalFormat;
 
 public class TipCalculator {
-    public static final DecimalFormat df2 = new DecimalFormat( "#.00" );
+    public static final DecimalFormat df2 = new DecimalFormat("#.00");
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the tip calculator!");
@@ -37,15 +38,15 @@ public class TipCalculator {
             input = scan.nextDouble();
             scan.nextLine();
 
-                if (input !=-1){
-                    totalBill += (input * amount);
-                    totalAmount += amount;
-                    System.out.print("Enter the food: ");
-                    foodName = scan.nextLine();
+            if (input != -1) {
+                totalBill += (input * amount);
+                totalAmount += amount;
+                System.out.print("Enter the food: ");
+                foodName = scan.nextLine();
 
-                    items.add(foodName);
-                    System.out.print("Amount of that food: ");
-                    amount = scan.nextInt();
+                items.add(foodName);
+                System.out.print("Amount of that food: ");
+                amount = scan.nextInt();
             }
         }
 
@@ -58,7 +59,7 @@ public class TipCalculator {
         double perPerson = totalBill / groupNumber;
         perPerson = (double) Math.round(perPerson * 100) / 100;
         double tipPerson = totalTip / groupNumber;
-        tipPerson= (double) Math.round(tipPerson * 100) / 100;
+        tipPerson = (double) Math.round(tipPerson * 100) / 100;
         double totalCost = billTip / groupNumber;
         totalCost = (double) Math.round(totalCost * 100) / 100;
         // https://intellipaat.com/community/35143/how-to-round-up-to-2-decimal-places-in-java
@@ -67,7 +68,7 @@ public class TipCalculator {
         // print the results
         System.out.println("-------------------------------------------");
         System.out.println("Total bill before tip: $" + df2.format(totalBill));
-        System.out.println("Total percentage: " + (int)tipPercentage + "%");
+        System.out.println("Total percentage: " + (int) tipPercentage + "%");
         System.out.println("Total Tip: $" + df2.format(totalTip));
         System.out.println("Total bill with tip: $" + df2.format(billTip));
         System.out.println("Per person cost before tip: $" + df2.format(perPerson));
