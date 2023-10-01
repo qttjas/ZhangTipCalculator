@@ -19,14 +19,14 @@ public class TipCalculator {
         System.out.print("Enter the food: ");
         String foodName = scan.nextLine();
 
-        System.out.print("Amount of that food: ");
+        System.out.print("Amount of that food: "); // freestyle
         int amount = scan.nextInt();
 
         double totalBill = 0;
         int totalAmount = 0;
         ArrayList<String> items = new ArrayList<String>();
         items.add(foodName);
-        totalBill += (double)(input * amount);
+        totalBill += (input * amount);
         totalAmount += amount;
 
         // loop
@@ -42,7 +42,7 @@ public class TipCalculator {
             amount = scan.nextInt();
 
                 if (input !=-1){
-                    totalBill += (double)(input * amount);
+                    totalBill += (input * amount);
                     totalAmount += amount;
             }
         }
