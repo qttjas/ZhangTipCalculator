@@ -34,16 +34,16 @@ public class TipCalculator {
             System.out.print("Enter a cost in dollars and cents, e.g. 3.65 (-1 to end): ");
             input = scan.nextDouble();
             scan.nextLine();
-            System.out.print("Enter the food: ");
-            foodName = scan.nextLine();
-
-            items.add(foodName);
-            System.out.print("Amount of that food: ");
-            amount = scan.nextInt();
 
                 if (input !=-1){
                     totalBill += (input * amount);
                     totalAmount += amount;
+                    System.out.print("Enter the food: ");
+                    foodName = scan.nextLine();
+
+                    items.add(foodName);
+                    System.out.print("Amount of that food: ");
+                    amount = scan.nextInt();
             }
         }
 
