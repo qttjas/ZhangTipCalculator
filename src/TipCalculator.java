@@ -1,7 +1,9 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class TipCalculator {
+    public static final DecimalFormat df2 = new DecimalFormat( "#.00" );
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the tip calculator!");
@@ -19,7 +21,7 @@ public class TipCalculator {
         System.out.print("Enter the food: ");
         String foodName = scan.nextLine();
 
-        System.out.print("Amount of that food: "); // freestyle
+        System.out.print("Amount of that food: "); // freestyle, which is collecting the amount
         int amount = scan.nextInt();
 
         double totalBill = 0;
@@ -29,7 +31,7 @@ public class TipCalculator {
         totalBill += (input * amount);
         totalAmount += amount;
 
-        // loop
+        // loop to get totalBill, food name, and amount until user enters -1
         while (input != -1) {
             System.out.print("Enter a cost in dollars and cents, e.g. 3.65 (-1 to end): ");
             input = scan.nextDouble();
@@ -47,7 +49,7 @@ public class TipCalculator {
             }
         }
 
-        // calculations
+        // calculations for total bill, total tip, etc
         totalBill = (double) Math.round(totalBill * 100) / 100;
         double totalTip = totalBill * (tipPercentage / 100);
         totalTip = (double) Math.round(totalTip * 100) / 100;
@@ -60,21 +62,22 @@ public class TipCalculator {
         double totalCost = billTip / groupNumber;
         totalCost = (double) Math.round(totalCost * 100) / 100;
         // https://intellipaat.com/community/35143/how-to-round-up-to-2-decimal-places-in-java
+        // https://stackoverflow.com/questions/16583604/formatting-numbers-using-decimalformat
 
-        // prints the result
+        // prints the results
         System.out.println("-------------------------------------------");
-        System.out.println("Total bill before tip: $" + totalBill);
+        System.out.println("Total bill before tip: $" + df2.format(totalBill));
         System.out.println("Total percentage: " + (int)tipPercentage + "%");
-        System.out.println("Total Tip: $" + totalTip);
-        System.out.println("Total bill with tip: $" + billTip);
-        System.out.println("Per person cost before tip: $" + perPerson);
-        System.out.println("Tip per person: $" + tipPerson);
-        System.out.println("Total cost per person: $" + totalCost);
+        System.out.println("Total Tip: $" + df2.format(totalTip));
+        System.out.println("Total bill with tip: $" + df2.format(billTip));
+        System.out.println("Per person cost before tip: $" + df2.format(perPerson));
+        System.out.println("Tip per person: $" + df2.format(tipPerson));
+        System.out.println("Total cost per person: $" + df2.format(totalCost));
         System.out.println("-------------------------------------------");
         System.out.println("Items ordered:");
         for (String item : items) {
             System.out.println(item);
         }
-        System.out.println("Total items ordered: " + totalAmount);
+        System.out.println("Total items ordered: " + totalAmount); // prints total food amount
     }
-} //ignore
+}
